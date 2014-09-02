@@ -1,5 +1,7 @@
 package algs.base;
 
+import algs.std.StdRandom;
+
 public class MergeSort
 {
     public void sort(Comparable[] a, int low, int high)
@@ -55,7 +57,7 @@ public class MergeSort
         boolean sorted = true;
         for (int i = 0; i < a.length - 1; i++)
         {
-            if (!less(a[i], a[i + 1]))
+            if (less(a[i + 1], a[i]))
             {
                 sorted = false;
                 break;
@@ -66,11 +68,14 @@ public class MergeSort
 
     public static void main(String[] args)
     {
-        Integer[] a = {1, 8, 5, 3};
-
+        int NUM = 100;
+        Integer[] a = new Integer[NUM];
+        for (int i = 0; i < NUM; i++)
+        {
+            final int uniform = StdRandom.uniform(1000);
+            a[i] = uniform;
+        }
         final MergeSort mergeSort = new MergeSort();
-        System.out.println(mergeSort.less(a[1], a[2]));
-        System.out.println(mergeSort.less(a[0], a[1]));
         mergeSort.sort(a, 0, a.length - 1);
         System.out.println(mergeSort.isSorted(a));
     }
