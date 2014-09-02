@@ -2,8 +2,9 @@ package algs.base;
 
 import algs.std.StdRandom;
 
-public class MergeSort
+public class MergeSort extends AbstractSort
 {
+    @Override
     public void sort(Comparable[] a, int low, int high)
     {
         if (low >= high)
@@ -17,11 +18,6 @@ public class MergeSort
             sort(a, mid + 1, high);
             merge(a, low, mid, high);
         }
-    }
-
-    public boolean less(Comparable a, Comparable b)
-    {
-        return a.compareTo(b) < 0;
     }
 
     private void merge(Comparable[] a, int low, int mid, int high)
@@ -50,20 +46,6 @@ public class MergeSort
                 a[i] = aux[q++];
             }
         }
-    }
-
-    private boolean isSorted(Comparable[] a)
-    {
-        boolean sorted = true;
-        for (int i = 0; i < a.length - 1; i++)
-        {
-            if (less(a[i + 1], a[i]))
-            {
-                sorted = false;
-                break;
-            }
-        }
-        return sorted;
     }
 
     public static void main(String[] args)
