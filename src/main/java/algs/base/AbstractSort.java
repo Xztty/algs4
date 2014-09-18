@@ -22,4 +22,10 @@ public abstract class AbstractSort
         }
         return sorted;
     }
+
+    protected void exch(Comparable[] a, int j, int i) {
+        Comparable c = a[j];
+        a[j] = a[i];
+        a[i] = c;
+    }
 }
