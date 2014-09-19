@@ -1,6 +1,5 @@
 package algs.ji;
 
-import algs.base.BinarySearch;
 import algs.std.StdRandom;
 
 import java.util.*;
@@ -14,18 +13,16 @@ public class BitonicArraySearch {
         final int compareToT = a[mid].compareTo(t);
         if (compareToT == 0) {
             return mid;
-        } else if (compareToT == 1) // mid bigger
-        {
-            int find = BinarySearch.binarySearchDescend(a, mid + 1, hi, t);
+        } else if (compareToT == 1) { // mid bigger
+            int find = bitonicSearch(a, mid + 1, hi, t);
             if (find == -1) {
-                return BinarySearch.binarySearch(a, lo, mid - 1, t);
+                return bitonicSearch(a, lo, mid - 1, t);
             } else {
                 return find;
             }
         } else {
-            final int compareTo = a[mid].compareTo(a[mid + 1]);
             boolean leftMax = true;
-            if (compareTo == 1) {
+            if (mid + 1 <= hi && a[mid].compareTo(a[mid + 1]) == -1) {
                 leftMax = false;
             }
             if (leftMax) {
@@ -62,9 +59,10 @@ public class BitonicArraySearch {
         for (int i = 0; i < a.length; i++) {
             list.add(a[i]);
         }
-        final int t = 1;
-        final int i = bitonicSearch(list.toArray(new Integer[0]), 0, list.size() - 1, t);
-        System.out.println(i + ":" + (t == list.get(i)));
+        for (Integer t : list) {
+            final int i = bitonicSearch(list.toArray(new Integer[0]), 0, list.size() - 1, t);
+            System.out.println(i + ":" + (t == list.get(i)));
+        }
     }
 
     private static void testBitonicMax() {
