@@ -1,5 +1,7 @@
 package algs.problem;
 
+import algs.Stack;
+
 public class StackOutSeqCheck {
     public static void main(String[] args) {
         final String[] strings = {"7 6 5 9 8 4 3 2 1 0",
