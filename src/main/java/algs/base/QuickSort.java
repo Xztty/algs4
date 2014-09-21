@@ -37,7 +37,8 @@ public class QuickSort extends AbstractSort {
         return j;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         int NUM = 500;
         Integer[] a = new Integer[NUM];
         for (int i = 0; i < NUM; i++) {
