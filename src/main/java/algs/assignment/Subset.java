@@ -122,11 +122,10 @@ public class Subset {
         @Override
         public Set<String> randomize(int k, Collection<String> collection) {
             Deque<String> deque = new Deque<>();
-            int n = collection.size();
             for (String s : collection) {
                 deque.addLast(s);
             }
-
+            int n = deque.size();
             Set<String> result = new HashSet<>();
             while (!deque.isEmpty()) {
                 final String s = deque.removeFirst();
