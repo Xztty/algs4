@@ -28,7 +28,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         }
         randomExchHead();
         final Item item = queue[head];
-        printQueueInfo("sample:" + item);
+//        printQueueInfo("sample:" + item);
         return item;
     }
 
@@ -115,7 +115,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         {
             tail = 0;
         }
-        printQueueInfo("enqueue:" + item);
+//        printQueueInfo("enqueue:" + item);
     }
 
     public Item dequeue()
@@ -137,7 +137,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>
         {
             resize(queue.length / SHRINK_FACTOR);
         }
-        printQueueInfo("dequeue:" + item);
+//        printQueueInfo("dequeue:" + item);
         return item;
     }
 

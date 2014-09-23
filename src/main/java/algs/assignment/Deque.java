@@ -47,7 +47,7 @@ public class Deque<Item> implements Iterable<Item>
             f.prev = newNode;
         }
         count++;
-        printQueueInfo("addFirst:" + item);
+//        printQueueInfo("addFirst:" + item);
     }
 
     private void checkNullItem(Item item)
@@ -73,7 +73,7 @@ public class Deque<Item> implements Iterable<Item>
             t.next = newNode;
         }
         count++;
-        printQueueInfo("addLast:" + item);
+//        printQueueInfo("addLast:" + item);
     }
 
     public Item removeFirst()                // delete and return the item at the front
@@ -93,7 +93,7 @@ public class Deque<Item> implements Iterable<Item>
             newHead.prev = null;
         }
         count--;
-        printQueueInfo("removeFirst:" + item);
+//        printQueueInfo("removeFirst:" + item);
         return item;
     }
 
@@ -114,7 +114,7 @@ public class Deque<Item> implements Iterable<Item>
             newTail.next = null;
         }
         count--;
-        printQueueInfo("removeLast:" + item);
+//        printQueueInfo("removeLast:" + item);
         return item;
     }
 
