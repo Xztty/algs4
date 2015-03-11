@@ -1,11 +1,3 @@
-/**
- * User: ZY
- * Date: 3/11/011
- * Time: 21:43
- */
-
-package test;
-
 import java.util.*;
 
 public class DictAssistant {
@@ -38,7 +30,7 @@ public class DictAssistant {
         int lenWord = word.length();
         if (lenWord == 0) {
             return lenLookup == 0;
-        } else if (lenLookup == 0) { // 需要在lookup最前面 插入字符
+        } else if (lenLookup == 0) {
             return true;
         } else {
             if (word.charAt(lenWord - 1) == lookup.charAt(lenLookup - 1)) {
@@ -55,7 +47,7 @@ public class DictAssistant {
         Scanner scanner = new Scanner(System.in);
         String lookup = scanner.nextLine();
         final DictAssistant dictAssistant = new DictAssistant();
-        while (true) {
+        while (scanner.hasNext()) {
             final String word = scanner.nextLine();
             if (word == null) {
                 break;
