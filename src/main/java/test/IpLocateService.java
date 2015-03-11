@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 基于IP区段构建构造线段树
  */
-public class IpService {
+public class IpLocateService {
     private static final long TOTAL_IP_NUM = 1L << 32;
     /**
      * 叶子节点包含的IP段的大小
@@ -16,6 +16,9 @@ public class IpService {
 
     private TreeNode[] treeNodes;
 
+    /**
+     * 初始化构建线段树
+     */
     public void init() {
         treeNodes = new TreeNode[NODE_NUM];
         for (int i = 0; i < treeNodes.length; i++) {
