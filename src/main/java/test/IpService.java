@@ -3,9 +3,15 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 基于IP区段构建构造线段树
+ */
 public class IpService {
     private static final long TOTAL_IP_NUM = 1L << 32;
-    private static final int LEAF_SIZE = 1 << 10;
+    /**
+     * 叶子节点包含的IP段的大小
+     */
+    private static final int LEAF_SIZE = 1 << 7;
     private static final int NODE_NUM = (int) (TOTAL_IP_NUM / LEAF_SIZE * 2 - 1);
 
     private TreeNode[] treeNodes;
@@ -33,8 +39,9 @@ public class IpService {
 
     /**
      * 查询指定IP所在地址
+     *
      * @param ip
-     * @return
+     * @return 返回Ip对应的地址集合
      */
     public List<String> queryIpAddress(String ip) {
         final long ipNum = convertIpToNumber(ip);
@@ -110,7 +117,7 @@ public class IpService {
         }
     }
 
-    public boolean match(IpSegment ipSegment, long ipNum) {
+    private boolean match(IpSegment ipSegment, long ipNum) {
         return ipSegment.s <= ipNum && ipSegment.e >= ipNum;
     }
 
